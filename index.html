@@ -256,11 +256,14 @@ header {
 .quant i { color: var(--quant); }
 .beta i   { color: var(--beta); }
 
+/* سرتیفیکیت‌ها - نسخه بهبود یافته برای موبایل */
 .cert-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 18px;
+    gap: 20px;
     margin-bottom: 90px;
+    padding: 0 10px;
+    justify-items: center;
 }
 
 .cert-card {
@@ -270,19 +273,19 @@ header {
     padding: 12px;
     text-align: center;
     transition: all 0.3s ease;
-}
-
-.cert-card:hover {
-    transform: translateY(-6px);
-    background: rgba(255,255,255,0.06);
+    width: 100%;
+    max-width: 280px;
+    box-sizing: border-box;
 }
 
 .cert-card img {
     width: 100%;
-    height: 158px;
+    height: auto;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
     border-radius: 12px;
     margin-bottom: 12px;
+    display: block;
 }
 
 .cert-card p {
@@ -291,6 +294,37 @@ header {
     color: var(--primary);
 }
 
+/* Responsive برای موبایل - سرتیفیکیت‌ها */
+@media (max-width: 768px) {
+    .nav-wrap { justify-content: center; }
+    .logo { display: none; }
+    .btn-trace-lilac { width: 92%; justify-content: center; font-size: 1rem; padding: 12px 20px; }
+    .hero { padding-top: 150px; padding-bottom: 70px; }
+    .grid { grid-template-columns: 1fr; }
+    .section-title { font-size: 2rem; }
+
+    .cert-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 0 15px;
+    }
+    
+    .cert-card {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .cert-card img {
+        height: auto;
+        max-height: 220px;
+    }
+    
+    .cert-grid {
+        overflow-x: hidden;
+    }
+}
+
+/* سوالات متداول */
 .faq-box {
     max-width: 880px;
     margin: 0 auto 110px;
@@ -346,15 +380,6 @@ footer {
     border-top: 1px solid var(--border);
     font-size: 0.85rem;
 }
-
-@media (max-width: 768px) {
-    .nav-wrap { justify-content: center; }
-    .logo { display: none; }
-    .btn-trace-lilac { width: 92%; justify-content: center; font-size: 1rem; padding: 12px 20px; }
-    .hero { padding-top: 150px; }
-    .grid { grid-template-columns: 1fr; }
-    .section-title { font-size: 2rem; }
-}
 </style>
 </head>
 
@@ -382,23 +407,25 @@ footer {
 
 <div class="container">
 
+<!-- بخش طرح‌های ربات -->
+<!-- بخش طرح‌های ربات -->
 <h2 class="section-title">طرح‌های ربات</h2>
 
 <div class="grid">
     <div class="card quant">
         <h3>Quant Plan</h3>
-        <div class="card-price">10% – 25%</div>
+        <div class="card-price">up to 25%</div>
         <ul class="feature-list">
             <li><i class="fas fa-microchip"></i> استراتژی کم‌ریسک هوشمند</li>
-            <li><i class="fas fa-shield-check"></i> حفظ امنیت اصل سرمایه</li>
-            <li><i class="fas fa-chart-pie"></i> توزیع هوشمند دارایی</li>
+            <li><i class="fas fa-shield-check"></i> حفظ امنیت اصل سرمایه</li>  <!-- ← آیکون اضافه شد -->
+            <li><i class="fas fa-chart-pie"></i> معاملات بهینه در ماه</li>
             <li><i class="fas fa-file-alt"></i> گزارش شفاف ماهانه</li>
         </ul>
     </div>
 
     <div class="card beta">
         <h3>Beta Plan</h3>
-        <div class="card-price">تا ۸۰%</div>
+        <div class="card-price">up + 25%</div>
         <ul class="feature-list">
             <li><i class="fas fa-bolt"></i> معاملات تهاجمی (Scalping)</li>
             <li><i class="fas fa-rocket"></i> پتانسیل رشد بسیار بالا</li>
@@ -410,11 +437,26 @@ footer {
 
 <h2 class="section-title">سرتیفیکیت‌ها</h2>
 <div class="cert-grid">
-    <div class="cert-card"><img src="certificates/AID-10X-4073.png" alt="C1"><p>ID: AID-10X-4073</p></div>
-    <div class="cert-card"><img src="certificates/AID-11X-3472.png" alt="C2"><p>ID: AID-11X-3472</p></div>
-    <div class="cert-card"><img src="certificates/AID-12X-8458.png" alt="C3"><p>ID: AID-12X-8458</p></div>
-    <div class="cert-card"><img src="certificates/AID-27X-3688.png" alt="C4"><p>ID: AID-27X-3688</p></div>
-    <div class="cert-card"><img src="certificates/AID-83X-9005.png" alt="C5"><p>ID: AID-83X-9005</p></div>
+    <div class="cert-card">
+        <img src="certificates/AID-10X-4073.png" alt="Certificate 1">
+        <p>ID: AID-10X-4073</p>
+    </div>
+    <div class="cert-card">
+        <img src="certificates/AID-11X-3472.png" alt="Certificate 2">
+        <p>ID: AID-11X-3472</p>
+    </div>
+    <div class="cert-card">
+        <img src="certificates/AID-12X-8458.png" alt="Certificate 3">
+        <p>ID: AID-12X-8458</p>
+    </div>
+    <div class="cert-card">
+        <img src="certificates/AID-27X-3688.png" alt="Certificate 4">
+        <p>ID: AID-27X-3688</p>
+    </div>
+    <div class="cert-card">
+        <img src="certificates/AID-83X-9005.png" alt="Certificate 5">
+        <p>ID: AID-83X-9005</p>
+    </div>
 </div>
 
 <h2 class="section-title">سوالات متداول</h2>
